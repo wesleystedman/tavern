@@ -37,19 +37,18 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
     #not sure how to do this when the name is on the user model and not on the profile
-    # def __str__(self):
-        # return self.name
+    def __str__(self):
+        return self.user.name
 
 class Group(models.Model):
     system = models.ForeignKey(System, on_delete=models.CASCADE)
     date = models.DateTimeField('date of next session')
     location = models.CharField(max_length=100)
     details = models.CharField(max_length=2000)
-    # players = models.ManyToManyField(Profile) # Under revision of model W & I discussed, this no longer informed by Profile, but by it's own contender property.
-    #players = # contender if swipe right occurs?
+    players = models.ManyToManyField(Profile, related_name='players')
     group_name = models.CharField(max_length=100)
     looking = models.BooleanField()
-    contenders = models.ManyToManyField(Profile)
+    contenders = models.ManyToManyField(Profile, related_name='contenders')
     
     def __str__(self):
         return self.group_name
