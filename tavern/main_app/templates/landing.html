@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Tavern</title>
-</head>
-<body>
-    <p> This is Tavern's Page</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Sign Up</h1>
+
+{% if error_message %}<p>{{ error_message }}</p>{% endif %}
+
+<form method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn" value="signup">
+</form>
+
+{% endblock %}
