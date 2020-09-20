@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from .models import Group
 from django.contrib.auth import login
@@ -11,7 +11,7 @@ def landing(request):
 
 @login_required
 def groups_index(request): 
-    return render(request, 'groups/index.html', { 'groups': groups })
+    return render(request, 'groups/index.html', { 'groups': None })
 
 class GroupCreate(LoginRequiredMixin, CreateView):
     model = Group
@@ -22,13 +22,13 @@ class GroupCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
     
 def signup(request):
-    error_message = 'IT WRONG!'
+    error_message = ''
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('groups_index')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
