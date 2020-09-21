@@ -1,10 +1,12 @@
+
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from .models import Group
+from .models import Group, Profile, System
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import ProfileForm, ExtendedUserCreationForm
+
 
 
 def landing(request):
@@ -41,17 +43,31 @@ class GroupCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+    
+class BioCreate(CreateView):
+    model = Profile
+    fields = '__all__'
+    
+    
+    
 
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
+        form = ExtendedUserCreationForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
             user = form.save()
+            
+            profile = profile_form.save(commit=false)
+            profile.user = user
+            profile.save()
             login(request, user)
             return redirect('groups_index')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
-    context = {'form': form, 'error_message': error_message}
+    form = ExtendedUserCreationForm()
+    profile_form = ProfileForm
+    context = {'form': form, 'profile_form' : profile_form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
