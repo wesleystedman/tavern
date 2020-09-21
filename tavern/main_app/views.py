@@ -1,10 +1,12 @@
+
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
-from .models import Group
+from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def landing(request):
     return render(request, 'landing.html')
@@ -21,6 +23,12 @@ class GroupCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
+class BioCreate(CreateView):
+    model = Profile
+    fields = '__all__'
+    
+    
+    
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -34,3 +42,4 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+

@@ -36,9 +36,11 @@ class Profile(models.Model):
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
-    #not sure how to do this when the name is on the user model and not on the profile
     def __str__(self):
         return self.user.name
+    
+    def get_absolute_url(self):
+        return reverse('user_detail', kwargs={'profile_id': self.id})
 
 class Group(models.Model):
     system = models.ForeignKey(System, on_delete=models.CASCADE)
