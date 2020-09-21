@@ -12,10 +12,8 @@ yes/no buttons
 {% for group in groups %}
     <p>Group Name: {{ group.group_name }}</p>
     <p>System: {{ group.system }}</p>
-    <p>Location: {{ group.location }}</p>
-    <p>Date: {{ group.date }}</p>
+    <p>Next Session: {{ group.date }}</p>
     <p>Details: {{ group.details }}</p>
-    <p>Players: {{ group.players }}</p>
     <button>No</button>
     <button>Yes</button>
 {% endfor %}
