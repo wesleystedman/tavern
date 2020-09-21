@@ -19,7 +19,7 @@ AVATARS = (
 )
 
 class System(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, choices=SYSTEMS)
 
     def __str__(self):
         return self.name
@@ -37,7 +37,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.user.name
+        return self.user.username
     
     def get_absolute_url(self):
         return reverse('user_detail', kwargs={'profile_id': self.id})

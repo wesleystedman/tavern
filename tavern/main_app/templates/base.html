@@ -18,8 +18,9 @@
                 <li>Your Groups</li>
                 <li>Profile</li>
                 {% if user.is_authenticated %}
+                
+                <li><a href="{% url 'bio' %}">Edit Bio</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
-                <li><a href="{% url 'bio' %}">Add/Edit Bio</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>
                 {% endif %}
