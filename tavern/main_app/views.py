@@ -6,21 +6,36 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 def landing(request):
     return render(request, 'landing.html')
 
+
 @login_required
-def groups_index(request): 
-    return render(request, 'groups/index.html', { 'groups': None })
+def groups_index(request):
+    return render(request, 'groups/index.html', {'groups': None})
+
+
+@login_required
+def lfg(request):
+    if hasattr(request.user, 'profile'):
+        profile = request.user.profile
+        groups = Group.objects.filter(looking=True, system__in=profile.systems.all())
+        groups = groups.exclude(players=profile).exclude(contenders=profile)
+        return render(request, 'lfg.html', {'groups': groups})
+    else:
+        return redirect('landing') # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
+
 
 class GroupCreate(LoginRequiredMixin, CreateView):
     model = Group
     fields = '__all__'
-    
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
