@@ -1,6 +1,43 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
 
-<h1>Welcome to the Tavern!</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Tavern</title>
+</head>
+
+<body id="landingbody">
+    <header>
+    </header>
+    <main>
+        <br>
+        <h1>Welcome to the Tavern!</h1>
+        
+        <button class="btn" type="button" onclick="location.href='{% url 'signup' %}'">Sign Up</button>
+        <button class="btn" type="button" onclick="location.href='#sellIt'">Learn More</button>
+        
+        <br>
+        <p>Not your first time here?</p>
+        
+        {% if user.is_authenticated %}
+            <button class="btn" type="button" onclick="location.href='{% url 'logout' %}'">Log Out</button>
+        {% else %}
+            <button class="btn" type="button" onclick="location.href='{% url 'login' %}'">Log In</button>
+        {% endif %}
+        
+        <br>
+        <div id="sellIt">
+            <p>Test selling point</p>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
+
+
