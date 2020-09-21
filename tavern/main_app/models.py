@@ -26,7 +26,7 @@ class System(models.Model):
     
 class Profile(models.Model):
     systems = models.ManyToManyField(System)
-    date = models.DateTimeField('date of next session')
+    date = models.DateTimeField('date of next session', null=True)
     location = models.CharField(max_length=200)
     bio = models.CharField(max_length=2000)
     avatar = models.CharField(

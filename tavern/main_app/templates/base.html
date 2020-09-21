@@ -14,7 +14,7 @@
     <header>
         <nav>
             <ul class="row">
-                <li>Find Group</li>
+                <li><a href="{% url 'lfg' %}">Find Group</a></li>
                 <li>Your Groups</li>
                 <li>Profile</li>
                 {% if user.is_authenticated %}
