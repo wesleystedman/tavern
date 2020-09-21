@@ -14,8 +14,13 @@ yes/no buttons
     <p>System: {{ group.system }}</p>
     <p>Next Session: {{ group.date }}</p>
     <p>Details: {{ group.details }}</p>
+    
     <button>No</button>
-    <button>Yes</button>
+    <form action="{% url 'add_contender' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="group_id" value="{{ group.id }}">
+        <button type="submit">Yes</button>
+    </form>
 {% endfor %}
 
 {% endblock %}

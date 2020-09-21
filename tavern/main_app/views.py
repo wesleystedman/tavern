@@ -27,6 +27,12 @@ def lfg(request):
         return redirect('landing') # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
 
 
+@login_required
+def add_contender(request):
+    group = Group.objects.get(id=request.POST['group_id'])
+    group.contenders.add(request.user.profile)
+    return redirect('lfg')
+
 class GroupCreate(LoginRequiredMixin, CreateView):
     model = Group
     fields = '__all__'
