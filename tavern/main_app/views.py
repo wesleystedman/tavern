@@ -22,7 +22,7 @@ def lfg(request):
         profile = request.user.profile
         groups = Group.objects.filter(looking=True, system__in=profile.systems.all())
         groups = groups.exclude(players=profile).exclude(contenders=profile)
-        return render(request, 'lfg.html', {'groups': groups})
+        return render(request, 'groups/lfg.html', {'groups': groups})
     else:
         return redirect('landing') # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
 
