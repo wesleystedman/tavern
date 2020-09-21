@@ -26,7 +26,7 @@ class System(models.Model):
     
 class Profile(models.Model):
     systems = models.ManyToManyField(System)
-    date = models.DateTimeField('date of next session')
+    date = models.DateTimeField('date of next session', null=True)
     location = models.CharField(max_length=200)
     bio = models.CharField(max_length=2000)
     avatar = models.CharField(
@@ -38,7 +38,7 @@ class Profile(models.Model):
     
     #not sure how to do this when the name is on the user model and not on the profile
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
 class Group(models.Model):
     system = models.ForeignKey(System, on_delete=models.CASCADE)

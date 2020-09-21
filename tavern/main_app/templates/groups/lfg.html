@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% comment %}
+group display
+yes/no buttons
+{% endcomment %}
+
+<h1>Find a Group</h1>
+
+{% for group in groups %}
+    <p>Group Name: {{ group.group_name }}</p>
+    <p>System: {{ group.system }}</p>
+    <p>Next Session: {{ group.date }}</p>
+    <p>Details: {{ group.details }}</p>
+    
+    <button>No</button>
+    <form action="{% url 'add_contender' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="group_id" value="{{ group.id }}">
+        <button type="submit">Yes</button>
+    </form>
+{% endfor %}
+
+{% endblock %}
