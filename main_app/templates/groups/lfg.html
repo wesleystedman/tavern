@@ -12,7 +12,8 @@ yes/no buttons
 <p>Group Name: {{ group.group_name }}</p>
 <p>System: {{ group.system }}</p>
 <p>Next Session: {{ group.date }}</p>
-<p>Details: {{ group.details }}</p>
+<p>Location: {{ group.location }}</p>
+<p>Details: {{ group.details|linebreaksbr }}</p>
 
 <a href="" class="btn">No</a>
 <form action="{% url 'add_contender' %}" method="post">
