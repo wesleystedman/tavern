@@ -5,7 +5,16 @@ from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+<<<<<<< HEAD
 from .forms import ExtendedUserCreationForm
+=======
+<<<<<<< HEAD:main_app/views.py
+from random import choice
+from .forms import ProfileForm, ExtendedUserCreationForm
+=======
+from .forms import ExtendedUserCreationForm
+>>>>>>> 84319cb:tavern/main_app/views.py
+>>>>>>> master
 
 
 

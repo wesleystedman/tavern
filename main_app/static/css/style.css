@@ -1,34 +1,65 @@
 body {
     padding: 0vh;
     margin: 0vh;
-    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 16px 'Cinzel Decorative', cursive, sans-serif;
     /*overflow-x: hidden;*/
     scroll-behavior: smooth;
     background-color: white;
     background-size: 100%;
     width: 100%;
-    color: black;
+    height: auto;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    text-shadow: 2px 3px 0px #000000;
+}
+
+a {
+    color: #627BA1;
+}
+
+a:hover {
+    color: #627BA1;
 }
 
 #landingbody {
-    /*background-image:url('');*/
+    background-image:url('https://i.imgur.com/2weWoym.gif');
     background-repeat: no-repeat;
+    background-color: black;
+    backdrop-filter: brightness(75%);
 }
 
 nav {
     background-color: grey;
     width: 75vw;
+    font-size: 2.5vw;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+#navRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.navImg{
+    width: 10vw;
+    height: auto;
+    max-width: 50px; /* Avoid attribution requirement by keeping below 100px */
+    max-height: 50px; /* Avoid attribution requirement by keeping below 100px */
+    margin: 1vh 0vw 0 0vw;
+    padding: 0 0vw 0 0vw;
 }
 
 .row {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     text-align: center;
 }
 
@@ -41,33 +72,53 @@ li {
     list-style-type: none;
     margin: 2% 1vw 2% 1vw;
     width: 95%;
+    text-shadow: 1px 1px 0px #000000;
 }
 
 h1 {
     font-size: 4.6vw;
 }
 
+.Unifraktur {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #A40E01;
+    font-size: 8vw;
+}
+
+p {
+    font-size: 2vw;
+    margin: 2vh 3vw 0 2vw;
+}
+
 .btn {
-    background-color:#929292;
+    background-color:#d67125;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
     color: #fff;
-    font-family: Arial;
+    font-family: 'UnifrakturMaguntia';
     font-size: 3vw;
-    font-weight: 700;
-    padding: 1.5vh 2.5vw 1.5vh 2.5vw;
+    font-weight: 60;
+    padding: 1vh 2.75vw 1vh 2.75vw;
     margin: 1vh 1vw 1vh 1vw;
     text-shadow: 1px 2px 0px #000000;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
     text-align: center;
-    border: groove #FFFFFF 1px;
+    border: groove grey 1px;
+}
+
+#ctaBtn {
+    background-color:#A40E01;
+}
+
+#logo {
+    width: 99px; /* Avoid attribution requirement by keeping below 100px */
+    height: 99px; /* Avoid attribution requirement by keeping below 100px */
+    margin: 0vh 0 0vh 0;
 }
 
 .form {
-    background-color: rgb(107, 99, 99);
+    background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
@@ -80,6 +131,39 @@ h1 {
     width: 95%;
     height: auto;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
+}
+
+#sellIt {
+    font-size: 14px;
+    padding: 0px;
+    margin: 7vh 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: Left;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+  
+.sellPt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: left;
+    margin: 0vh 1vw 0vh 1vw;
+    padding: 0 0vw 0 0vw;
+}
+
+.bgBlur {
+    backdrop-filter: blur(100px) brightness(20%);
+}
+
+.sellImg{
+    width: 15vw;
+    height: auto;
+    max-width: 99px; /* Avoid attribution requirement by keeping below 100px */
+    max-height: 99px; /* Avoid attribution requirement by keeping below 100px */
+    margin: 0vh 3vw 0 3vw;
+    padding: 0 0vw 0 3vw;
 }
