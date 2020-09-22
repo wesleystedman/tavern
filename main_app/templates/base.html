@@ -14,20 +14,11 @@
 <body>
     <header>
         <nav>
-<<<<<<< HEAD:main_app/templates/base.html
-            <ul id="navRow">
-                <li><a href="{% url 'lfg' %}"><img class='navImg' src="https://imgur.com/n5Ytoyc.png">Find Group</a></li>
-                <li><a><img class='navImg' src="https://imgur.com/15LMFYr.png">Your Groups</a></li>
-                <li><a><img class='navImg' src="https://imgur.com/SA8TLcg.png">Profile</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'bio' %}">Edit Bio</a></li>
-=======
             <ul class="row">
                 <li><a href="{% url 'lfg' %}">Find Group</a></li>
                 <li>Your Groups</li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Profile</a></li>
->>>>>>> 84319cb:tavern/main_app/templates/base.html
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>
