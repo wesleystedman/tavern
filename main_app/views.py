@@ -5,6 +5,7 @@ from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from random import choice
 from .forms import ProfileForm, ExtendedUserCreationForm
 
 
@@ -24,7 +25,8 @@ def lfg(request):
         profile = request.user.profile
         groups = Group.objects.filter(looking=True, system__in=profile.systems.all())
         groups = groups.exclude(players=profile).exclude(contenders=profile)
-        return render(request, 'groups/lfg.html', {'groups': groups})
+        group = choice(groups)
+        return render(request, 'groups/lfg.html', {'group': group})
     else:
         return redirect('landing') # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
 
