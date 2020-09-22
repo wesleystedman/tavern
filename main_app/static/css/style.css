@@ -50,8 +50,6 @@ h1 {
 .btn {
     background-color:#929292;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
     color: #fff;
     font-family: Arial;
     font-size: 3vw;
@@ -80,6 +78,4 @@ h1 {
     width: 95%;
     height: auto;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
 }
