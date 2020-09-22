@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
-
 AVATARS = (
     ('Bard', 'https://i.imgur.com/rPQXpUG.jpg?1'),
     ('Ranger', 'https://i.imgur.com/rPQXpUG.jpg?1'),
@@ -36,14 +35,14 @@ class Profile(models.Model):
         return reverse('user_detail', kwargs={'profile_id': self.id})
 
 class Group(models.Model):
+    group_name = models.CharField(max_length=100)
     system = models.ForeignKey(System, on_delete=models.CASCADE)
     date = models.DateTimeField('date of next session')
     location = models.CharField(max_length=100)
-    details = models.CharField(max_length=2000)
+    details = models.TextField(max_length=2000)
     players = models.ManyToManyField(Profile, related_name='players')
-    group_name = models.CharField(max_length=100)
-    looking = models.BooleanField()
     contenders = models.ManyToManyField(Profile, related_name='contenders')
+    looking = models.BooleanField(default=True)
     
     def __str__(self):
         return self.group_name

@@ -5,8 +5,8 @@ from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from random import choice
 from .forms import ExtendedUserCreationForm
-
 
 
 def landing(request):
@@ -27,7 +27,8 @@ def lfg(request):
         group = choice(groups)
         return render(request, 'groups/lfg.html', {'group': group})
     else:
-        return redirect('landing') # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
+        # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
+        return redirect('landing')
 
 
 @login_required
@@ -36,9 +37,10 @@ def add_contender(request):
     group.contenders.add(request.user.profile)
     return redirect('lfg')
 
+
 class GroupCreate(LoginRequiredMixin, CreateView):
     model = Group
-    fields = '__all__'
+    fields = ['group_name', 'system', 'date', 'location', 'details']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -65,4 +67,3 @@ def signup(request):
     form = ExtendedUserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
-

@@ -14,9 +14,16 @@
 <body>
     <header>
         <nav>
-            <ul class="row">
-                <li><a href="{% url 'lfg' %}">Find Group</a></li>
-                <li>Your Groups</li>
+            <ul id="navRow">
+                <li>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'lfg' %}"><img class='navImg' src="https://imgur.com/n5Ytoyc.png">Find Group</a>
+                    {% else %}
+                    <img class='navImg' src="https://imgur.com/n5Ytoyc.png">Find Group
+                    {% endif %}
+                </li>
+                <li><a><img class='navImg' src="https://imgur.com/15LMFYr.png">Your Groups</a></li>
+                <li><a><img class='navImg' src="https://imgur.com/SA8TLcg.png">Profile</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
