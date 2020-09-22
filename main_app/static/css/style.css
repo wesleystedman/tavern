@@ -86,15 +86,25 @@ h1 {
 }
 
 p {
-    font-size: 2vw;
+    font-size: 1.5vw;
+    margin: 1vh 1vw 1vh 1vw;
+}
+
+.landingp {
+    font-size: 1.75vw;
     margin: 2vh 3vw 0 2vw;
 }
 
 .btn {
     background-color:#d67125;
+    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
+    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
+    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
+    background-image: -o-linear-gradient(top, #DD8949, #C06621);
+    background-image: linear-gradient(to bottom, #DD8949, #C06621);
     border-radius: 15px;
     color: #fff;
-    font-family: 'UnifrakturMaguntia';
+    font: 16px 'Cinzel Decorative', cursive, sans-serif;
     font-size: 3vw;
     font-weight: 60;
     padding: 1vh 2.75vw 1vh 2.75vw;
@@ -105,10 +115,33 @@ p {
     cursor: pointer;
     text-align: center;
     border: groove grey 1px;
+    box-shadow: 0px 1px 21px 4px #EC6542;
+    -webkit-box-shadow: 0px 1px 21px 4px #EC6542;
+    -moz-box-shadow: 0px 1px 21px 4px #EC6542;
+}
+
+.btn:hover {
+    background-color:#ce8b58;
+    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
+    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
+    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
+    background-image: -o-linear-gradient(top, #DD8949, #C06621);
+    background-image: linear-gradient(to bottom, #DD8949, #C06621);
 }
 
 #ctaBtn {
     background-color:#A40E01;
+    background-image: -webkit-linear-gradient(top, #D71201, #710A01);
+    background-image: -moz-linear-gradient(top, #D71201, #710A01);
+    background-image: -ms-linear-gradient(top, #D71201, #710A01);
+    background-image: -o-linear-gradient(top, #D71201, #710A01);
+    background-image: linear-gradient(to bottom, #D71201, #710A01);
+}
+
+#ctaBtn:hover {
+    box-shadow: 0px 1px 21px 4px #f75e59;
+    -webkit-box-shadow: 0px 1px 21px 4px #f75e59;
+    -moz-box-shadow: 0px 1px 21px 4px #f75e59;
 }
 
 #logo {
@@ -134,9 +167,9 @@ p {
 }
 
 #sellIt {
-    font-size: 14px;
-    padding: 0px;
-    margin: 7vh 0 0 0;
+    background: black;
+    padding: 15px 0 15px 0;
+    margin: 5vh 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: Left;
@@ -153,10 +186,6 @@ p {
     justify-content: left;
     margin: 0vh 1vw 0vh 1vw;
     padding: 0 0vw 0 0vw;
-}
-
-.bgBlur {
-    backdrop-filter: blur(100px) brightness(20%);
 }
 
 .sellImg{
