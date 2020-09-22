@@ -25,7 +25,7 @@
                 <li><a><img class='navImg' src="https://imgur.com/15LMFYr.png">Your Groups</a></li>
                 <li><a><img class='navImg' src="https://imgur.com/SA8TLcg.png">Profile</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'bio' %}">Edit Bio</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>

@@ -4,14 +4,6 @@ import datetime
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-# SYSTEMS = (
-#     ('D3.5', 'Dungeons & Dragons 3.5'),
-#     ('D5', 'Dungeons & Dragons 5'),
-#     ('P', 'Pathfinder'),
-#     ('C', 'Call of Cthulu'),
-#     ('S', 'Starfinder'),
-#     ('V', 'Vampire: the Masquerade'),
-# )
 
 AVATARS = (
     ('Bard', 'https://i.imgur.com/rPQXpUG.jpg?1'),
