@@ -7,18 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <title>Tavern</title>
 </head>
 
 <body>
     <header>
         <nav>
-            <ul class="row">
-                <li><a href="{% url 'lfg' %}">Find Group</a></li>
-                <li>Your Groups</li>
-                <li>Profile</li>
+            <ul id="navRow">
+                <li><a href="{% url 'lfg' %}"><img class='navImg' src="https://imgur.com/n5Ytoyc.png">Find Group</a></li>
+                <li><a><img class='navImg' src="https://imgur.com/15LMFYr.png">Your Groups</a></li>
+                <li><a><img class='navImg' src="https://imgur.com/SA8TLcg.png">Profile</a></li>
                 {% if user.is_authenticated %}
-                
                 <li><a href="{% url 'bio' %}">Edit Bio</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
