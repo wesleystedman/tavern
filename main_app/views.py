@@ -44,11 +44,14 @@ class GroupCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
+@login_required
+def profile(request):
+    return render(request, 'main_app/profile/profile.html')
 
-def profile_create(request):
-    profile = Profile.objects.all()
-    return render(request, 'main_app/profile/profile.html', {'profile': profile})
-  
+class ProfileCreate(LoginRequiredMixin, CreateView):
+    model = Profile
+    fields = '__all__'
+    
     
 
 def signup(request):
