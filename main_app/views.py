@@ -6,7 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from random import choice
-from .forms import ExtendedUserCreationForm
+from .forms import ExtendedUserCreationForm, GroupForm
 
 
 def landing(request):
@@ -22,7 +22,8 @@ def groups_index(request):
 def lfg(request):
     if hasattr(request.user, 'profile'):
         profile = request.user.profile
-        groups = Group.objects.filter(looking=True, system__in=profile.systems.all())
+        groups = Group.objects.filter(
+            looking=True, system__in=profile.systems.all())
         groups = groups.exclude(players=profile).exclude(contenders=profile)
         group = choice(groups)
         return render(request, 'groups/lfg.html', {'group': group})
@@ -45,13 +46,20 @@ class GroupCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+
+    def post(self, request, *args, **kwargs):
+        form = GroupForm(request.POST)
+        if form.is_valid():
+            new_group = form.save()
+            new_group.players.add(request.user.id)
+        # TODO: un-stub when we have single group view
+        return redirect('groups_index')
+
 
 def profile_create(request):
     profile = Profile.objects.all()
     return render(request, 'main_app/profile/profile.html', {'profile': profile})
-  
-    
+
 
 def signup(request):
     error_message = ''
@@ -59,7 +67,7 @@ def signup(request):
         form = ExtendedUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            
+
             login(request, user)
             return redirect('groups_index')
         else:

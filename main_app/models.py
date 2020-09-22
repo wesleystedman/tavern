@@ -48,7 +48,7 @@ class Group(models.Model):
         return self.group_name
     
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'resource_id': self.id})
+        return reverse('groups_index') # TODO: un-stub when we have single group view
     
 
     
