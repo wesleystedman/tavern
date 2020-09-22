@@ -25,7 +25,7 @@ a:hover {
 }
 
 #landingbody {
-    background-image:url('https://i.imgur.com/2weWoym.gif');
+    background-image:url('/static/third.gif');
     background-repeat: no-repeat;
     background-color: black;
     backdrop-filter: brightness(75%);
