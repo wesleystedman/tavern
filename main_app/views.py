@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -78,7 +78,6 @@ class GroupCreate(LoginRequiredMixin, CreateView):
 def profile(request):
     if hasattr(request.user, 'profile'):
         profile = Profile.objects.get(user=request.user)
-        print(profile)
         return render(request, 'main_app/profile.html', {'profile': profile})
     else:
         return redirect('profile_form')
@@ -91,6 +90,10 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = Profile
+    fields = ['systems', 'date', 'location', 'bio', 'avatar'] 
 
 
 def signup(request):

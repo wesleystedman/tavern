@@ -11,5 +11,6 @@ urlpatterns = [
     path('lfg/add-contender/', views.add_contender, name='add_contender'),
     path('profiles/create/', views.ProfileCreate.as_view(), name='profile_form'),
     path('profiles/', views.profile, name='profile'),
+    path('profiles/<int:pk>/update/', views.ProfileUpdate.as_view(), name='profile_update'),
 ]
 
