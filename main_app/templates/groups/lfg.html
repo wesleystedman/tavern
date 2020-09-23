@@ -2,11 +2,6 @@
 
 {% block content %}
 
-{% comment %}
-group display
-yes/no buttons
-{% endcomment %}
-
 <h1>Find a Group</h1>
 
 {% if group %}
@@ -22,7 +17,8 @@ yes/no buttons
         <br>
         <b>Details</b> <br>
         <br>
-        {{ group.details|linebreaksbr }}</p>
+        {{ group.details|linebreaksbr }}
+    </p>
     <div>
         <br>
         <form action="{% url 'add_contender' %}" method="post">
@@ -34,15 +30,18 @@ yes/no buttons
                 <button type="submit" class="btn">YEA</button>
             </div>
         </form>
+    </div>
+</div>
 
+{% else %}
 
-        {% else %}
+<p>
+    There are currently no more groups available for you
+    to consider with the criteria you have chosen in your profile.<br>
+    Please try looking for different kinds of games or time
+    availabilities, or just check in again later.
+</p>
 
-        <p>There are currently no more groups available for you
-            to consider with the criteria you have chosen in your profile.<br>
-            Please try looking for different kinds of games or time
-            availabilities, or just check in again later.</p>
+{% endif %}
 
-        {% endif %}
-
-        {% endblock %}
+{% endblock %}
