@@ -1,5 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-     <a href="/groups/create">Add a Group</a>
+<a href="{% url 'groups_create' %}">Add a Group</a>
+
+{% for group in groups %}
+<a href="{% url 'groups_detail' group.id %}">
+    <div>
+        <p>Group Name: {{ group.group_name }}</p>
+        <p>System: {{ group.system }}</p>
+        <p>Next Session: {{ group.date }}</p>
+        <p>Location: {{ group.location }}</p>
+        <p>Details: {{ group.details|linebreaksbr }}</p>
+        <p>Looking for Players: {{ group.looking }}</p>
+        <p>Players:</p>
+        <ul>
+            {% for player in group.players.all %}
+            <li>{{ player }}</li>
+            {% endfor %}
+        </ul>
+        <p>
+            {{ group.contenders.all|length }}
+            Contender{% if not group.contenders.all|length_is:"1" %}s{% endif %}
+        </p>
+    </div>
+</a>
+{% endfor %}
+
 {% endblock %}

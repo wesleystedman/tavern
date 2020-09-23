@@ -120,6 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/groups/'
+LOGIN_REDIRECT_URL = '/lfg/'
 
 LOGOUT_REDIRECT_URL = '/'

@@ -4,97 +4,152 @@ body {
     font: 16px 'Cinzel Decorative', cursive, sans-serif;
     /*overflow-x: hidden;*/
     scroll-behavior: smooth;
-    background-color: white;
+    background-color: black;
     background-size: 100%;
     width: 100%;
     height: auto;
-    color: white;
+    color: #c06621;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    text-shadow: 2px 3px 0px #000000;
+    text-shadow: 1px 2px 0px #000000;
 }
-
 a {
     color: #627BA1;
 }
-
 a:hover {
     color: #627BA1;
 }
 
-#landingbody {
-    background-image:url('https://i.imgur.com/2weWoym.gif');
-    background-repeat: no-repeat;
-    background-color: black;
-    backdrop-filter: brightness(75%);
+header{
+    width: 100%;
 }
 
-nav {
-    background-color: grey;
-    width: 75vw;
-    font-size: 2.5vw;
+#basemain {
+    background-color: white;
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+}
+
+li {
+    /*list-style-type: none;*/
+    margin: 0vh 1vw 0vh 1vw;
     text-shadow: 1px 1px 0px #000000;
 }
 
-#navRow {
+/* NAV */
+nav{
+    background-color: black;
+    width: 85%;
+}
+#navRow{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: top;
     justify-content: space-between;
-    text-align: center;
+    text-align: left;
 }
-
 .navImg{
     width: 10vw;
     height: auto;
     max-width: 50px; /* Avoid attribution requirement by keeping below 100px */
     max-height: 50px; /* Avoid attribution requirement by keeping below 100px */
-    margin: 1vh 0vw 0 0vw;
+    margin: 0vh 2vw 0 0vw;
     padding: 0 0vw 0 0vw;
+}
+.navLi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 1px 1px 0px #000000;
+}
+.navp {
+    font-size: 2vw;
+    text-align: center;
+    color: #fff;
+    margin: 0px 2vw 0px 0px;
+}
+
+
+#landingbody {
+    background-image:url('/static/third.gif');
+    background-repeat: no-repeat;
+    background-color: black;
+    backdrop-filter: brightness(75%);
+    background-size: 100%;
+    width: 100%;
+    height: auto;
+    color: white;
+    padding: 1px 0 0 0;
 }
 
 .row {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: center;
 }
 
-ul {
-    background-color: darkgray;
-    width: 95%;
-}
-
-li {
-    list-style-type: none;
-    margin: 2% 1vw 2% 1vw;
-    width: 95%;
-    text-shadow: 1px 1px 0px #000000;
-}
 
 h1 {
     font-size: 4.6vw;
 }
 
-.Unifraktur {
+#Unifraktur {
     font-family: 'UnifrakturMaguntia', cursive;
     color: #A40E01;
     font-size: 8vw;
 }
 
-p {
-    font-size: 2vw;
-    margin: 2vh 3vw 0 2vw;
+.Unifraktur {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #A40E01;
+    font-size: 4vw;
 }
 
+p {
+    font-size: 1.5vw;
+    margin: 5px 1vw 5px 1vw;
+}
+
+#logo {
+    width: 99px; /* Avoid attribution requirement by keeping below 100px */
+    height: 99px; /* Avoid attribution requirement by keeping below 100px */
+    margin: 0vh 0 0vh 0;
+}
+
+/* CARDS */
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3vh 0px 15vh 0px;
+}
+.cardWords {
+    font-size: 2.5vw;
+    text-shadow: 0px 0px 0px #000000;
+    margin: 0 20vw 0 20vw;
+    line-height: 3.6vw;
+}
+
+/* BUTTONS */
 .btn {
     background-color:#d67125;
+    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
+    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
+    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
+    background-image: -o-linear-gradient(top, #DD8949, #C06621);
+    background-image: linear-gradient(to bottom, #DD8949, #C06621);
     border-radius: 15px;
     color: #fff;
-    font-family: 'UnifrakturMaguntia';
+    font: 16px 'Cinzel Decorative', cursive, sans-serif;
     font-size: 3vw;
     font-weight: 60;
     padding: 1vh 2.75vw 1vh 2.75vw;
@@ -105,19 +160,54 @@ p {
     cursor: pointer;
     text-align: center;
     border: groove grey 1px;
+    box-shadow: 0px 1px 21px 4px #EC6542;
+    -webkit-box-shadow: 0px 1px 21px 4px #EC6542;
+    -moz-box-shadow: 0px 1px 21px 4px #EC6542;
 }
-
+.btn:hover {
+    background-color:#ce8b58;
+    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
+    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
+    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
+    background-image: -o-linear-gradient(top, #DD8949, #C06621);
+    background-image: linear-gradient(to bottom, #DD8949, #C06621);
+}
 #ctaBtn {
     background-color:#A40E01;
+    background-image: -webkit-linear-gradient(top, #D71201, #710A01);
+    background-image: -moz-linear-gradient(top, #D71201, #710A01);
+    background-image: -ms-linear-gradient(top, #D71201, #710A01);
+    background-image: -o-linear-gradient(top, #D71201, #710A01);
+    background-image: linear-gradient(to bottom, #D71201, #710A01);
+}
+#ctaBtn:hover {
+    box-shadow: 0px 1px 21px 4px #f75e59;
+    -webkit-box-shadow: 0px 1px 21px 4px #f75e59;
+    -moz-box-shadow: 0px 1px 21px 4px #f75e59;
+}
+.loginBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+#loginPageBtn {
+    font-size: 20px;
+    margin: 25px 0 0 0;
+}
+.yeaNayRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: red;
+    padding: 0vh 10vw 0vh 10vw;
+    width: 100%;
+    margin: 1vh 0vw 0vh 0vw;
 }
 
-#logo {
-    width: 99px; /* Avoid attribution requirement by keeping below 100px */
-    height: 99px; /* Avoid attribution requirement by keeping below 100px */
-    margin: 0vh 0 0vh 0;
-}
-
-.form {
+/* FORMS */
+form {
     background-color: black;
     color: white;
     display: flex;
@@ -125,18 +215,28 @@ p {
     align-items: left;
     text-align: left;
     line-height: 2.25vh;
-    font-size: 2vw;
-    padding: 0vh 1vw 0vh 1vw;
-    margin: 0vh 1vw 0vh 1vw;
-    width: 95%;
+    font-size: 3vw;
+    padding: 3vh 3vw 3vh 3vw;
+    margin: 2vh 1vw 0vh 1vw;
+    width: 100%;
     height: auto;
     border-radius: 15px;
 }
+#loginPageForm {
+    padding: 3vh 3vw 3vh 3vw;
+    margin: 20vh 1vw 40vh 1vw;
 
+}
+
+/* LANDING PAGE */
+.landingp {
+    font-size: 1.75vw;
+    margin: 2vh 3vw 0 2vw;
+}
 #sellIt {
-    font-size: 14px;
-    padding: 0px;
-    margin: 7vh 0 0 0;
+    background: black;
+    padding: 15px 0 15px 0;
+    margin: 5vh 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: Left;
@@ -144,7 +244,6 @@ p {
     justify-content: center;
     width: 100%;
 }
-  
 .sellPt {
     display: flex;
     flex-direction: row;
@@ -154,11 +253,6 @@ p {
     margin: 0vh 1vw 0vh 1vw;
     padding: 0 0vw 0 0vw;
 }
-
-.bgBlur {
-    backdrop-filter: blur(100px) brightness(20%);
-}
-
 .sellImg{
     width: 15vw;
     height: auto;
@@ -166,4 +260,32 @@ p {
     max-height: 99px; /* Avoid attribution requirement by keeping below 100px */
     margin: 0vh 3vw 0 3vw;
     padding: 0 0vw 0 3vw;
+}
+
+/* FOOTER */
+footer {
+    background: black;
+    position: relative;
+    bottom: 0px;
+    padding: 5px 0 0px 0;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 2px solid #5a5a5a;
+}
+#footlogo {
+    background-color: black;
+    border-radius: 15px;
+    padding: 5px 5px 0px 5px;
+    margin: 0 5px 5px 10px;
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #A40E01;
+}
+#copyright {
+    font-size: 70%;
+    margin: 5px 5px 15px 5px;
 }

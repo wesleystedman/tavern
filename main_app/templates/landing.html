@@ -1,66 +1,57 @@
-{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% extends "no_nav_base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
-    <title>Tavern</title>
-</head>
+{% block content %}
 
-<body id="landingbody">
-    <header>
-    </header>
-    <main>
-        <h1>Welcome to &nbsp<span class="Unifraktur">Tavern</span>&nbsp!</h1>
-        <p>A swiping app for finding a table-top role-playing gaming group</p>
-        <br>
-        <div class="row">
-            <img id="logo" src="https://imgur.com/az89k3x.png">
-            <button class="btn" id="ctaBtn" type="button" onclick="location.href='{% url 'signup' %}'">Sign Up</button>
-            {% if user.is_authenticated %}
-                <button class="btn" type="button" onclick="location.href='{% url 'logout' %}'">Log Out</button>
-            {% else %}
-                <button class="btn" type="button" onclick="location.href='{% url 'login' %}'">Log In</button>
-            {% endif %}
-            <img id="logo" src="https://imgur.com/az89k3x.png">
-        </div>
-        
-        <div id="sellIt">
-            <div class='sellPt'>
-                <div class="bgBlur">
-                    <img class='sellImg' src="https://imgur.com/GzDhZZS.png"> 
-                </div>
-                <p>Play games remotely or at a location of your choice</p>
-            </div> 
-            <div class='sellPt'>
-                <div class="bgBlur">
-                    <img class='sellImg' src="https://imgur.com/n5Ytoyc.png"> 
-                </div>
-                <p>Find a group, a GM/DM, or the player you need</p>
-            </div> 
-            <div class='sellPt'>
-                <div class="bgBlur">
-                    <img class='sellImg' src="https://imgur.com/15LMFYr.png"> 
-                </div>
-                <p>Invite off-app party members and bring you friends into your party</p>
-            </div> 
-            <div class='sellPt'>
-                <div class="bgBlur">
-                    <img class='sellImg' src="https://imgur.com/Uk2zXLg.png"> 
-                </div>
-                <p>System agnostic: fight dragons in dungeons, or masquerade about with fellow vampires</p>
-            </div> 
-        </div>
-    </main>
-    <footer>
-    </footer>
-</body>
+<header>
+</header>
+<div id="landingbody">
+    <div class="bgBlur">
+        <h1>Welcome to &nbsp<span id="Unifraktur">Tavern</span>&nbsp!</h1>
+    </div>
+    <p class="landingp">Tavern is a swiping app for finding a table-top role-playing gaming group</p>
+    <br>
+    <div class="row">
+        <!--<img id="logo" src="https://imgur.com/az89k3x.png">-->
+        <button class="btn" id="ctaBtn" type="button" onclick="location.href='{% url 'signup' %}'">Sign Up</button>
+        {% if user.is_authenticated %}
+            <button class="btn" type="button" onclick="location.href='{% url 'logout' %}'">Log Out</button>
+        {% else %}
+            <button class="btn" type="button" onclick="location.href='{% url 'login' %}'">Log In</button>
+        {% endif %}
+        <!--<img id="logo" src="https://imgur.com/az89k3x.png">-->
+    </div>
+    
+    <div id="sellIt">
+        <div class='sellPt'>
+            <div class="bgBlur">
+                <img class='sellImg' src="https://imgur.com/GzDhZZS.png"> 
+            </div>
+            <p class="landingp">Play games remotely or at a location of your choice</p>
+        </div> 
+        <div class='sellPt'>
+            <div class="bgBlur">
+                <img class='sellImg' src="https://imgur.com/n5Ytoyc.png"> 
+            </div>
+            <p class="landingp">Find a group, a GM/DM, or the player you need</p>
+        </div> 
+        <div class='sellPt'>
+            <div class="bgBlur">
+                <img class='sellImg' src="https://imgur.com/15LMFYr.png"> 
+            </div>
+            <p class="landingp">Invite off-app party members and bring your friends into your party</p>
+        </div> 
+        <div class='sellPt'>
+            <div class="bgBlur">
+                <img class='sellImg' src="https://imgur.com/Uk2zXLg.png"> 
+            </div>
+            <p class="landingp">Friendly to any system: fight dragons in dungeons, or masquerade about with fellow vampires</p>
+        </div> 
+    </div>
+</div>
 
-</html>
+{% endblock %}
+
+
 
 
