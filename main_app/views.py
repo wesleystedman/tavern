@@ -33,7 +33,10 @@ def lfg(request):
         # should go before this checking that any groups meeting conditions above 
         # this comment exists(example if (groups)), and else not run choice method, 
         # and carry on. Didn't want to mess w your function - bgq
-        group = choice(groups)
+        if groups.count() > 0:
+            group = choice(groups)
+        else:
+            group = None
         return render(request, 'groups/lfg.html', {'group': group})
     else:
         # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
