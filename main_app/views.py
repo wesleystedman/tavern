@@ -15,8 +15,12 @@ def landing(request):
 
 @login_required
 def groups_index(request):
-    return render(request, 'groups/index.html', {'groups': None})
+    groups = Group.objects.filter(players=request.user.profile).order_by('date')
+    return render(request, 'groups/index.html', {'groups': groups})
 
+@login_required
+def groups_detail(request, group_id):
+    return redirect('groups_index') # TODO
 
 @login_required
 def lfg(request):
