@@ -15,12 +15,18 @@ def landing(request):
 
 @login_required
 def groups_index(request):
-    groups = Group.objects.filter(players=request.user.profile).order_by('date')
-    return render(request, 'groups/index.html', {'groups': groups})
+    if hasattr(request.user, 'profile'):
+        groups = Group.objects.filter(
+            players=request.user.profile.id).order_by('date')
+        return render(request, 'groups/index.html', {'groups': groups})
+    else:
+        return redirect('profile_form')
+
 
 @login_required
 def groups_detail(request, group_id):
     return redirect('groups_index') # TODO
+
 
 @login_required
 def lfg(request):
@@ -28,26 +34,24 @@ def lfg(request):
         profile = request.user.profile
         groups = Group.objects.filter(
             looking=True, system__in=profile.systems.all())
-        groups = groups.exclude(players=profile).exclude(contenders=profile)
-        # Choice throws an error on empty sequence, perhaps an if conditional 
-        # should go before this checking that any groups meeting conditions above 
-        # this comment exists(example if (groups)), and else not run choice method, 
-        # and carry on. Didn't want to mess w your function - bgq
+        groups = groups.exclude(players=profile.id).exclude(contenders=profile.id)
         if groups.count() > 0:
             group = choice(groups)
         else:
             group = None
         return render(request, 'groups/lfg.html', {'group': group})
     else:
-        # TODO: make this a redirect to profile setup, OR always initialize a profile in signup
-        return redirect('landing')
+        return redirect('profile_form')
 
 
 @login_required
 def add_contender(request):
-    group = Group.objects.get(id=request.POST['group_id'])
-    group.contenders.add(request.user.profile)
-    return redirect('lfg')
+    if hasattr(request.user, 'profile'):
+        group = Group.objects.get(id=request.POST['group_id'])
+        group.contenders.add(request.user.profile.id)
+        return redirect('lfg')
+    else:
+        return redirect('profile_form')
 
 
 class GroupCreate(LoginRequiredMixin, CreateView):
@@ -59,24 +63,30 @@ class GroupCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def post(self, request, *args, **kwargs):
-        form = GroupForm(request.POST)
-        if form.is_valid():
-            new_group = form.save()
-            new_group.players.add(request.user.id)
-        # TODO: un-stub when we have single group view
-        return redirect('groups_index')
+        if hasattr(request.user, 'profile'):
+            form = GroupForm(request.POST)
+            if form.is_valid():
+                new_group = form.save()
+                new_group.players.add(request.user.profile.id)
+            # TODO: un-stub when we have single group view
+            return redirect('groups_index')
+        else:
+            return redirect('profile_form')
 
 
 @login_required
 def profile(request):
-    profile = Profile.objects.get(user = request.user)
-    return render(request, 'main_app/profile.html', {'profile': profile})
+    if hasattr(request.user, 'profile'):
+        profile = Profile.objects.get(user=request.user)
+        return render(request, 'main_app/profile.html', {'profile': profile})
+    else:
+        return redirect('profile_form')
 
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['systems', 'date', 'location', 'bio', 'avatar'] 
-    
+    fields = ['systems', 'date', 'location', 'bio', 'avatar']
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
