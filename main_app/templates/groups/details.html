@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <p>Group Name: {{ group.group_name }}</p>
+        <p>System: {{ group.system }}</p>
+        <p>Next Session: {{ group.date }}</p>
+        <p>Players</p>
+        <ul>
+            {% for g in group.players.all %}
+            <li>{{g.user.first_name}}</li>
+            {% endfor %}
+        </ul>
+        <p>Location: {{ group.location }}</p>
+        <p>Details: {{ group.details|linebreaksbr }}</p>
+        {% if group.looking %}
+        <p>Yes! We are looking for players</p>
+        {% else %}
+        <p>We are not looking for players at this time</p>
+        {% endif %}
+        
+    <div>Edit</div>
+    <div>Delete</div>
+
+{% endblock %}
+

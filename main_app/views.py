@@ -20,7 +20,8 @@ def groups_index(request):
 
 @login_required
 def groups_detail(request, group_id):
-    return redirect('groups_index') # TODO
+    group = Group.objects.get(id=group_id)
+    return render(request, 'groups/details.html', {'group': group})
 
 @login_required
 def lfg(request):
