@@ -25,6 +25,10 @@ def lfg(request):
         groups = Group.objects.filter(
             looking=True, system__in=profile.systems.all())
         groups = groups.exclude(players=profile).exclude(contenders=profile)
+        # Choice throws an error on empty sequence, perhaps an if conditional 
+        # should go before this checking that any groups meeting conditions above 
+        # this comment exists(example if (groups)), and else not run choice method, 
+        # and carry on. Didn't want to mess w your function - bgq
         group = choice(groups)
         return render(request, 'groups/lfg.html', {'group': group})
     else:

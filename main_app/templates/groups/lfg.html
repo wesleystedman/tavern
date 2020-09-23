@@ -9,16 +9,39 @@ yes/no buttons
 
 <h1>Find a Group</h1>
 
-<p>Group Name: {{ group.group_name }}</p>
-<p>System: {{ group.system }}</p>
-<p>Next Session: {{ group.date }}</p>
-<p>Details: {{ group.details }}</p>
+{#% # if (group == true) %#}
 
-<a href="" class="btn">No</a>
+<div class="card">
+    <p class="cardWords"> 
+    <b>Group Name:</b>&nbsp {{ group.group_name }}<br>
+    <br>
+    <b>System:</b>&nbsp {{ group.system }}<br>
+    <br>
+    <b>Next Session:</b><br>
+    {{ group.date }}<br>
+    <br>
+    <b>Details</b> <br> 
+    <br>
+    {{ group.details }}</p>
+<div>
+<br>
 <form action="{% url 'add_contender' %}" method="post">
     {% csrf_token %}
     <input type="hidden" name="group_id" value="{{ group.id }}">
-    <button type="submit" class="btn">Yes</button>
+    <div class="yeaNayRow">
+        <a href="" class="btn">NAY</a> <!-- Placed inside form so it's easier to style, was acting completely different - BGQ -->
+        <button type="submit" class="btn">YEA</button>
+    </div>
 </form>
+
+
+{#% else %#}
+
+    <!--<p>There are currently no more groups available for you 
+    to consider with the criteria you have chosen in your profile.<br> 
+    Please try looking for different kinds of games or time 
+    availabilities, or just check in again later.</p>-->
+
+{#% # endif %#}
 
 {% endblock %}

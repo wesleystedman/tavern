@@ -15,29 +15,46 @@
     <header>
         <nav>
             <ul id="navRow">
-                <li>
+                <!--Checking authentication is only necesary for login/logout bc it changes the visible icon description, 
+                the rest are otherwise functionally protected in views - BGQ-->
+                <li class="navLi">
+                    <a href="{% url 'lfg' %}">
+                        <img class='navImg' src="https://imgur.com/n5Ytoyc.png">
+                            <p class="navp">Find<br>Group</p></a></li>
+                <li class="navLi">
+                    <a href="{% url 'groups_index' %}">
+                        <img class='navImg' src="https://imgur.com/15LMFYr.png">
+                            <p class="navp">Your<br>Groups</p></a></li>
+                <li class="navLi">
+                    <a href="{% url 'profile' %}">
+                        <img class='navImg' src="https://imgur.com/SA8TLcg.png">
+                            <p class="navp">Profile</p></a></li>
+                <li class="navLi">
                     {% if user.is_authenticated %}
-                    <a href="{% url 'lfg' %}"><img class='navImg' src="https://imgur.com/n5Ytoyc.png">Find Group</a>
+                        <a href="{% url 'logout' %}">
+                            <img class='navImg' src="https://imgur.com/Buu207m.png">
+                                <p class="navp">Log<br>Out</p></a></li>
                     {% else %}
-                    <img class='navImg' src="https://imgur.com/n5Ytoyc.png">Find Group
+                        <a href="{% url 'login' %}">
+                            <img class='navImg' src="https://imgur.com/Buu207m.png">
+                                <p class="navp">Log<br>In</p></a></li>
                     {% endif %}
                 </li>
-                <li><a><img class='navImg' src="https://imgur.com/15LMFYr.png">Your Groups</a></li>
-                <li><a><img class='navImg' src="https://imgur.com/SA8TLcg.png">Profile</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'profile' %}">Profile</a></li>
-                <li><a href="{% url 'logout' %}">Log Out</a></li>
-                {% else %}
-                <li><a href="{% url 'login' %}">Log In</a></li>
-                {% endif %}
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="basemain">
         {% block content %}
         {% endblock %}
     </main>
     <footer>
+        <div id="footlogo">
+            <img id="logo" src="https://imgur.com/az89k3x.png" alt="Logo">
+        </div>
+        <div>
+            <p class="Unifraktur">Tavern</p>
+            <p id="copyright"> Copyright © 2020 Brian Quezada, Wesley Stedman, and Sam Ostrom </p>
+        </div>
     </footer>
 </body>
 
