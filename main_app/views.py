@@ -64,9 +64,20 @@ class GroupCreate(LoginRequiredMixin, CreateView):
         return redirect('groups_index')
 
 
-def profile_create(request):
-    profile = Profile.objects.all()
-    return render(request, 'main_app/profile/profile.html', {'profile': profile})
+@login_required
+def profile(request):
+    profile = Profile.objects.get(user = request.user)
+    print(profile)
+    return render(request, 'main_app/profile.html', {'profile': profile})
+
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
+    model = Profile
+    fields = ['systems', 'date', 'location', 'bio', 'avatar'] 
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 def signup(request):
@@ -77,7 +88,7 @@ def signup(request):
             user = form.save()
 
             login(request, user)
-            return redirect('groups_index')
+            return redirect('profile_form')
         else:
             error_message = 'Invalid sign up - try again'
     form = ExtendedUserCreationForm()

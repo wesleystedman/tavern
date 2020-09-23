@@ -32,7 +32,14 @@ class Profile(models.Model):
         return self.user.username
     
     def get_absolute_url(self):
-        return reverse('user_detail', kwargs={'profile_id': self.id})
+        return reverse('profile')
+    
+    def get_systems(self):
+        str_all = ''
+        for system in self.systems.all():
+            str_all += system.name + ', '
+        return str_all[:len(str_all) -2]
+        
 
 class Group(models.Model):
     group_name = models.CharField(max_length=100)
