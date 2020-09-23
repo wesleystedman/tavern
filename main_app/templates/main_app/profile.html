@@ -4,10 +4,19 @@
 <h1> Profile </h1>
 
 <div class="content">
+
+    <p>{{profile.avatar}}</p>
 </br>
     <span class="title">{{ profile.user.username }}'s profile</span>
+    
     <p>{{profile.get_systems}}</p>
+    
+    <p>{{profile.user.email}}</p>
+    
+    <p>{{profile.location}}</p>
+    
     <p>{{profile.bio}}</p>
+
 </div>
 
 {% endblock %}
