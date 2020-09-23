@@ -3,7 +3,11 @@
 
 <h1> Profile </h1>
 
+
 <div class="content">
+    <div class="edit">
+        <a href="{% url 'profile_update' profile.id %}">Edit</a>
+    </div>
 
     <p>{{ profile.avatar }}</p>
 </br>
@@ -15,7 +19,7 @@
     
     <p>{{ profile.location }}</p>
     
-    <p>{{ profile.bio }</p>
+    <p>{{ profile.bio }}</p>
 
 </div>
 
