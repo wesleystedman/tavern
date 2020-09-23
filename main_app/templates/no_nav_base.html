@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <title>Tavern</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div id="footlogo">
+            <img id="logo" src="https://imgur.com/az89k3x.png" alt="Logo">
+        </div>
+        <div>
+            <p class="Unifraktur">Tavern</p>
+            <p id="copyright"> Copyright © 2020 Brian Quezada, Wesley Stedman, and Sam Ostrom </p>
+        </div>
+    </footer>
+</body>
+
+</html>

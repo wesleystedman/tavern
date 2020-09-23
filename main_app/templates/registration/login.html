@@ -1,15 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'no_nav_base.html' %}
 
 {% block content %}
 
-<h1>Log In</h1>
-
 {% if error_message %}<p>{{ error_message }}</p>{% endif %}
 
-<form class="form" method="post" action="{% url 'login' %}">
+
+
+<form id="loginPageForm" method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <span class="form">{{ form.as_p }}</span>
-    <input type="submit" class="btn" value="login">
+    <span>{{ form.as_p }}</span>
+    <div class="loginBtnContainer">
+        <input type="submit" class="btn" id="loginPageBtn" value="login">
+    <div>
     <input type="hidden" name="next" value="{{ next }}">
 </form>
 
