@@ -139,6 +139,9 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = ['systems', 'date', 'location', 'bio', 'avatar']
 
+    def get_object(self):
+        return self.request.user.profile
+
 
 def signup(request):
     error_message = ''
