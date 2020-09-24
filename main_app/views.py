@@ -9,7 +9,6 @@ from random import choice
 from .forms import ExtendedUserCreationForm, GroupForm, ProfileForm
 
 
-
 def landing(request):
     return render(request, 'landing.html')
 
@@ -23,23 +22,32 @@ def groups_index(request):
     else:
         return redirect('profile_form')
 
+
 @login_required
 def groups_detail(request, group_id):
     group = Group.objects.get(id=group_id)
-    if hasattr(request.user, 'profile'):
-        show_contenders = group.contenders.all().count() and group.players.filter(id=request.user.profile.id).exists()
+    if request.method == 'POST':
+        if hasattr(request.user, 'profile') and group.players.filter(id=request.user.profile.id).exists() and group.players.all().count() > 1:
+            group.players.remove(request.POST['player_id'])
+        return redirect('groups_detail', group_id=group_id)
     else:
-        show_contenders = False
-    return render(request, 'groups/details.html', {'group': group, 'show_contenders': show_contenders})
+        if hasattr(request.user, 'profile'):
+            show_contenders = group.contenders.all().count() and group.players.filter(
+                id=request.user.profile.id).exists()
+        else:
+            show_contenders = False
+        return render(request, 'groups/details.html', {'group': group, 'show_contenders': show_contenders})
+
 
 class GroupUpdate(LoginRequiredMixin, UpdateView):
     model = Group
     fields = ['system', 'date', 'location', 'details']
 
+
 class GroupDelete(LoginRequiredMixin, DeleteView):
     model = Group
     success_url = '/groups/'
-                       
+
 
 @login_required
 def contender_detail(request, pk):
@@ -137,13 +145,13 @@ def signup(request):
     if request.method == 'POST':
         form = ExtendedUserCreationForm(request.POST)
         profile_form = ProfileForm(request.POST)
-        
+
         if form.is_valid() and profile_form.is_valid():
             user = form.save()
-            
+
             profile = profile_form.save(commit=False)
             profile.user = user
-            
+
             profile.save()
 
             login(request, user)
