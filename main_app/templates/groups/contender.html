@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content">
+
+    <p>{{ group.group_name }}</p>
+
+    <p>{{ contender.avatar }}</p>
+    </br>
+    <span class="title">{{ contender.user.username }}</span>
+
+    <p>{{ contender.bio }}</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="contender_id" value="{{ contender.id }}">
+        <div class="yeaNayRow">
+            <input type="submit" name="NAY" value="NAY" class="btn">
+            <a href="" class="btn">NEXT</a>
+            <input type="submit" name="YEA" value="YEA" class="btn">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

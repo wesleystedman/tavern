@@ -10,7 +10,7 @@
     <p>Players</p>
     <ul>
         {% for g in group.players.all %}
-        <li>{{g.user.first_name}}</li>
+        <li>{{g.user.username}}</li>
         {% endfor %}
     </ul>
     <p>Location: {{ group.location }}</p>
@@ -19,6 +19,11 @@
         <p>Yes! We are looking for players</p>
     {% else %}
         <p>We are not looking for players at this time</p>
+    {% endif %}
+    {% if is_member %}
+        <p><a href="{% url 'contender_detail' group.id %}">
+            Manage {{ group.contenders.all|length }} Contender{% if not group.contenders.all|length_is:"1" %}s{% endif %}
+        </a></p>
     {% endif %}
 </div>
 <div class="row">
