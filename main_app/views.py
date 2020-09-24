@@ -30,12 +30,34 @@ def groups_detail(request, group_id):
 
 
 @login_required
+def contender_detail(request, pk):
+    if hasattr(request.user, 'profile'):
+        group = Group.objects.get(id=pk)
+        if group.players.filter(id=request.user.profile.id).exists():
+            if request.method == 'GET':
+                if group.contenders.all().count() > 0:
+                    contender = choice(group.contenders.all())
+                else:
+                    contender = None
+                return render(request, 'groups/contender.html', {'group': group, 'contender': contender})
+            elif request.method == 'POST':
+                if 'YEA' in request.POST:
+                    group.players.add(request.POST['contender_id'])
+                group.contenders.remove(request.POST['contender_id'])
+                return redirect('contender_detail', pk=pk)
+        return redirect('groups_detail', group_id=pk)
+    else:
+        return redirect('profile_form')
+
+
+@login_required
 def lfg(request):
     if hasattr(request.user, 'profile'):
         profile = request.user.profile
         groups = Group.objects.filter(
             looking=True, system__in=profile.systems.all())
-        groups = groups.exclude(players=profile.id).exclude(contenders=profile.id)
+        groups = groups.exclude(players=profile.id).exclude(
+            contenders=profile.id)
         if groups.count() > 0:
             group = choice(groups)
         else:
@@ -91,10 +113,11 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+
+
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
-    fields = ['systems', 'date', 'location', 'bio', 'avatar'] 
+    fields = ['systems', 'date', 'location', 'bio', 'avatar']
 
 
 def signup(request):
