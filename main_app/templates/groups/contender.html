@@ -15,9 +15,9 @@
         {% csrf_token %}
         <input type="hidden" name="contender_id" value="{{ contender.id }}">
         <div class="yeaNayRow">
-            <input type="submit" name="NAY" value="NAY">
+            <input type="submit" name="NAY" value="NAY" class="btn">
             <a href="" class="btn">NEXT</a>
-            <input type="submit" name="YEA" value="YEA">
+            <input type="submit" name="YEA" value="YEA" class="btn">
         </div>
     </form>
 </div>
