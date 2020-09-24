@@ -20,7 +20,7 @@
     {% else %}
         <p>We are not looking for players at this time</p>
     {% endif %}
-    {% if is_member %}
+    {% if show_contenders %}
         <p><a href="{% url 'contender_detail' group.id %}">
             Manage {{ group.contenders.all|length }} Contender{% if not group.contenders.all|length_is:"1" %}s{% endif %}
         </a></p>

@@ -27,10 +27,10 @@ def groups_index(request):
 def groups_detail(request, group_id):
     group = Group.objects.get(id=group_id)
     if hasattr(request.user, 'profile'):
-        is_member = group.players.filter(id=request.user.profile.id).exists()
+        show_contenders = group.contenders.all().count() and group.players.filter(id=request.user.profile.id).exists()
     else:
-        is_member = False
-    return render(request, 'groups/details.html', {'group': group, 'is_member': is_member})
+        show_contenders = False
+    return render(request, 'groups/details.html', {'group': group, 'show_contenders': show_contenders})
 
 class GroupUpdate(LoginRequiredMixin, UpdateView):
     model = Group

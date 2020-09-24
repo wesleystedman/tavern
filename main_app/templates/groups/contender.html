@@ -3,8 +3,9 @@
 
 <div class="content">
 
-    <p>{{ group.group_name }}</p>
+    <p><a href="{% url 'groups_detail' group.id %}">{{ group.group_name }}</a></p>
 
+    {% if contender %}
     <p>{{ contender.avatar }}</p>
     </br>
     <span class="title">{{ contender.user.username }}</span>
@@ -20,6 +21,14 @@
             <input type="submit" name="YEA" value="YEA" class="btn">
         </div>
     </form>
+    {% else %}
+    <p>
+        There are currently no more contenders available for you
+        to consider for this group.<br>
+        If you would like to have more, make sure this group is
+        marked as looking for players, then check back later.
+    </p>
+    {% endif %}
 </div>
 
 {% endblock %}
