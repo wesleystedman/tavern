@@ -202,7 +202,7 @@ p {
     justify-content: space-between;
     background-color: red;
     padding: 0vh 10vw 0vh 10vw;
-    width: 100%;
+    width: 50%;
     margin: 1vh 0vw 0vh 0vw;
 }
 
@@ -225,7 +225,9 @@ form {
 #loginPageForm {
     padding: 3vh 3vw 3vh 3vw;
     margin: 20vh 1vw 40vh 1vw;
-
+}
+.swipeForm {
+    background-color: transparent;
 }
 
 /* LANDING PAGE */
