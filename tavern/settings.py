@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/lfg/'
+LOGIN_REDIRECT_URL = '/profiles/'
 
 LOGOUT_REDIRECT_URL = '/'
 
