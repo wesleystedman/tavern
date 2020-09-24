@@ -20,7 +20,7 @@ class Profile(models.Model):
     systems = models.ManyToManyField(System, blank=True)
     date = models.DateTimeField('date of next session', null=True, blank=True)
     location = models.CharField(max_length=200, blank=True)
-    bio = models.CharField(max_length=2000, blank=True)
+    bio = models.TextField(max_length=2000, blank=True)
     avatar = models.CharField(
       max_length=255,
       choices=AVATARS,
