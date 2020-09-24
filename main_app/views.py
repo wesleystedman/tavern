@@ -1,12 +1,13 @@
 
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from random import choice
 from .forms import ExtendedUserCreationForm, GroupForm
+from django.urls import reverse
 
 
 def landing(request):
@@ -22,12 +23,19 @@ def groups_index(request):
     else:
         return redirect('profile_form')
 
-
 @login_required
 def groups_detail(request, group_id):
     group = Group.objects.get(id=group_id)
     return render(request, 'groups/details.html', {'group': group})
 
+class GroupUpdate(LoginRequiredMixin, UpdateView):
+    model = Group
+    fields = ['system', 'date', 'location', 'details']
+
+class GroupDelete(LoginRequiredMixin, DeleteView):
+    model = Group
+    success_url = '/groups/'
+                       
 
 @login_required
 def lfg(request):

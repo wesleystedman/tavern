@@ -22,8 +22,8 @@
     {% endif %}
 </div>
 <div class="row">
-    <btn href="" type="button" class="btn">Edit</btn>
-    <btn href="" type="button" class="btn">Delete</btn>
+    <a href="{% url 'group_update' group.id %}" type="button" class="btn">Edit</a>
+    <a href="{% url 'group_delete' group.id %}" type="button" class="btn">Delete</a>
 </div>
 <br>
 
