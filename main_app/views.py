@@ -1,12 +1,13 @@
 
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Group, Profile, System
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from random import choice
-from .forms import ExtendedUserCreationForm, GroupForm
+from .forms import ExtendedUserCreationForm, GroupForm, ProfileForm
+
 
 
 def landing(request):
@@ -22,12 +23,19 @@ def groups_index(request):
     else:
         return redirect('profile_form')
 
-
 @login_required
 def groups_detail(request, group_id):
     group = Group.objects.get(id=group_id)
     return render(request, 'groups/details.html', {'group': group})
 
+class GroupUpdate(LoginRequiredMixin, UpdateView):
+    model = Group
+    fields = ['system', 'date', 'location', 'details']
+
+class GroupDelete(LoginRequiredMixin, DeleteView):
+    model = Group
+    success_url = '/groups/'
+                       
 
 @login_required
 def contender_detail(request, pk):
@@ -124,13 +132,21 @@ def signup(request):
     error_message = ''
     if request.method == 'POST':
         form = ExtendedUserCreationForm(request.POST)
-        if form.is_valid():
+        profile_form = ProfileForm(request.POST)
+        
+        if form.is_valid() and profile_form.is_valid():
             user = form.save()
+            
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            
+            profile.save()
 
             login(request, user)
             return redirect('profile_form')
         else:
             error_message = 'Invalid sign up - try again'
     form = ExtendedUserCreationForm()
+    profile_form = ProfileForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
