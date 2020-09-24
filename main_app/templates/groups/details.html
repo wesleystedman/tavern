@@ -22,7 +22,7 @@
     {% endif %}
     {% if show_contenders %}
         <p><a href="{% url 'contender_detail' group.id %}">
-            Manage {{ group.contenders.all|length }} Contender{% if not group.contenders.all|length_is:"1" %}s{% endif %}
+            Manage {{ group.contenders.all|length }} Contender{{ group.contenders.all|length|pluralize}}
         </a></p>
     {% endif %}
 </div>
