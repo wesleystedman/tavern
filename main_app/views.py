@@ -158,7 +158,7 @@ def signup(request):
             profile.save()
 
             login(request, user)
-            return redirect('profile_form')
+            return redirect('profile_update')
         else:
             error_message = 'Invalid sign up - try again'
     form = ExtendedUserCreationForm()
