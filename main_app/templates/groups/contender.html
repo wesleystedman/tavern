@@ -6,7 +6,7 @@
     <p><a href="{% url 'groups_detail' group.id %}">{{ group.group_name }}</a></p>
 
     {% if contender %}
-    <p>{{ contender.avatar }}</p>
+    <img src="{{ contender.avatar }}" alt="{{ contender.user.username }}'s Avatar" height="200">
     </br>
     <span class="title">{{ contender.user.username }}</span>
 

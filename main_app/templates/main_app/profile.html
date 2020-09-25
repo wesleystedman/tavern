@@ -9,7 +9,7 @@
         <a href="{% url 'profile_update' %}">Edit</a>
     </div>
 
-    <p>{{ profile.avatar }}</p>
+    <img src="{{ profile.avatar }}" alt="{{ profile.user.username }}'s Avatar" height="200">
 </br>
     <span class="title">{{ profile.user.username }}'s profile</span>
     
