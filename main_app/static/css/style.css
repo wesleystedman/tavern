@@ -202,6 +202,11 @@ footer {
     align-items: center;
     text-align: center;
 }
+.groupIndex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 .paper {
     height: 50vh;
     width: auto;

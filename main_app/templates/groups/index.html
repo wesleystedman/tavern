@@ -4,7 +4,7 @@
 <a href="{% url 'groups_create' %}">Add a Group</a>
 
 {% for group in groups %}
-<a href="{% url 'groups_detail' group.id %}">
+<a class="groupIndex" href="{% url 'groups_detail' group.id %}">
     <div class="cardWords">
         <p>Group Name: {{ group.group_name }}</p>
         <p>System: {{ group.system }}</p>
