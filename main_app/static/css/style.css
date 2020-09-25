@@ -150,6 +150,9 @@ footer {
 #basemain {
     background-color: white;
     width: 97%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #landingbody {
     background-image:url('/static/third.gif');
