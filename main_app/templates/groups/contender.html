@@ -6,19 +6,19 @@
     <p><a href="{% url 'groups_detail' group.id %}">{{ group.group_name }}</a></p>
 
     {% if contender %}
-    <img src="{{ contender.avatar }}" alt="{{ contender.user.username }}'s Avatar" height="200">
+    <img src="{{ contender.avatar }}" alt="{{ contender.user.username }}'s Avatar" height="60">
     </br>
     <span class="title">{{ contender.user.username }}</span>
 
     <p>{{ contender.bio }}</p>
 
-    <form action="" method="post">
+    <form action="" method="post" class="swipeForm">
         {% csrf_token %}
         <input type="hidden" name="contender_id" value="{{ contender.id }}">
         <div class="yeaNayRow">
-            <input type="submit" name="NAY" value="NAY" class="btn">
-            <a href="" class="btn">NEXT</a>
-            <input type="submit" name="YEA" value="YEA" class="btn">
+            <input type="submit" name="NAY" value="NAY" class="btn yesNoBtn redBtn">
+            <a href="" class="btn yesNoBtn">NEXT</a>
+            <input type="submit" name="YEA" value="YEA" class="btn yesNoBtn">
         </div>
     </form>
     {% else %}
