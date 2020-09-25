@@ -150,6 +150,9 @@ footer {
 #basemain {
     background-color: white;
     width: 97%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #landingbody {
     background-image:url('/static/third.gif');
@@ -239,8 +242,8 @@ form {
     text-align: left;
     line-height: 2.25vh;
     font-size: 3vw;
-    padding: 3vh 3vw 3vh 3vw;
-    margin: 2vh 1vw 0vh 1vw;
+    padding: 3vh 0vw 3vh 0vw;
+    margin: 2vh 0vw 0vh 0vw;
     width: 100%;
     height: auto;
     border-radius: 15px;
@@ -261,7 +264,7 @@ form {
 .swipeForm {
     background-color: transparent;
     height: 100px;
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
