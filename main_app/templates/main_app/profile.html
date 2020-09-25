@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="content">
+<div class="wanted">
     <br>
-    <span class="title">{{ profile.user.username }}'s Profile</span>
-    <img src="{{ profile.avatar }}" alt="{{ profile.user.username }}'s Avatar" height="200">
     <br>
-    <p>{{ profile.get_systems }}</p>
-    <p>{{ profile.user.email }}</p>
-    <p>{{ profile.location }}</p>
-
-    <p>{{ profile.bio }}</p>
+    <div class="cardWords">
+        <span class="title">{{ profile.user.username }}'s Profile</span>
+        <img src="{{ profile.avatar }}" alt="{{ profile.user.username }}'s Avatar" height="120">
+        <p>Game Sytem:&nbsp {{ profile.get_systems }}</p>
+        <p>{{ profile.user.email }}</p>
+        <p>Location:&nbsp {{ profile.location }}</p>
+        <p>Bio</p>
+        <p>{{ profile.bio }}</p>
+    </div>
 </div>
-<br>
 <div class="edit">
         <a class="btn" href="{% url 'profile_update' %}">Edit</a>
 </div>
