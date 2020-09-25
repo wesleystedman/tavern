@@ -6,8 +6,18 @@ from django.urls import reverse
 
 
 AVATARS = (
-    ('Bard', 'https://i.imgur.com/rPQXpUG.jpg?1'),
-    ('Ranger', 'https://i.imgur.com/rPQXpUG.jpg?1'),
+    ('https://i.imgur.com/AHgUoIv.png', 'Rogue'),
+    ('https://i.imgur.com/zBHhmmr.png', 'Barbarian (F)'),
+    ('https://i.imgur.com/EyeEo9D.png', 'Wizard'),
+    ('https://i.imgur.com/tWmY2sU.png', 'Prince'),
+    ('https://i.imgur.com/F8k6i3d.png', 'Princess'),
+    ('https://i.imgur.com/oE7KZOm.png', 'Bard'),
+    ('https://i.imgur.com/x0q6FSr.png', 'Knight'),
+    ('https://i.imgur.com/3XXKzWP.png', 'Monk'),
+    ('https://i.imgur.com/hyiR7Mi.png', 'Barbarian (M)'),
+    ('https://i.imgur.com/9mXtSfN.png', 'Maiden'),
+    ('https://i.imgur.com/EO2FsmV.png', 'Queen')
+     
 )
 
 class System(models.Model):
@@ -20,7 +30,7 @@ class Profile(models.Model):
     systems = models.ManyToManyField(System, blank=True)
     date = models.DateTimeField('date of next session', null=True, blank=True)
     location = models.CharField(max_length=200, blank=True)
-    bio = models.CharField(max_length=2000, blank=True)
+    bio = models.TextField(max_length=2000, blank=True)
     avatar = models.CharField(
       max_length=255,
       choices=AVATARS,

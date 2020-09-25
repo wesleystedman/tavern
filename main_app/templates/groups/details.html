@@ -9,21 +9,30 @@
     <p>{{ group.date }}</p>
     <p>Players</p>
     <ul>
-        {% for g in group.players.all %}
-        <li>{{g.user.username}}</li>
+        {% for player in group.players.all %}
+        <li>
+            {% if group.players.all.count > 1 %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="player_id" value="{{player.id}}">
+                <button class="">X</button>
+            </form>
+            {% endif %}
+            {{player.user.username}}
+        </li>
         {% endfor %}
     </ul>
     <p>Location: {{ group.location }}</p>
     <p>Details: {{ group.details|linebreaksbr }}</p>
     {% if group.looking %}
-        <p>Yes! We are looking for players</p>
+    <p>Yes! We are looking for players</p>
     {% else %}
-        <p>We are not looking for players at this time</p>
+    <p>We are not looking for players at this time</p>
     {% endif %}
-    {% if is_member %}
-        <p><a href="{% url 'contender_detail' group.id %}">
-            Manage {{ group.contenders.all|length }} Contender{% if not group.contenders.all|length_is:"1" %}s{% endif %}
-        </a></p>
+    {% if show_contenders %}
+    <p><a href="{% url 'contender_detail' group.id %}">
+        Manage {{ group.contenders.all.count }} Contender{{ group.contenders.all.count|pluralize}}
+    </a></p>
     {% endif %}
 </div>
 <div class="row">
@@ -34,4 +43,3 @@
 
 
 {% endblock %}
-

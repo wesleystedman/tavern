@@ -18,10 +18,7 @@
             <li>{{ player }}</li>
             {% endfor %}
         </ul>
-        <p>
-            {{ group.contenders.all|length }}
-            Contender{% if not group.contenders.all|length_is:"1" %}s{% endif %}
-        </p>
+        <p>{{ group.contenders.all.count }} Contender{{ group.contenders.all.count|pluralize}}</p>
     </div>
 </a>
 {% endfor %}
