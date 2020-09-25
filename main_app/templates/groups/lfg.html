@@ -17,15 +17,12 @@
             <p>{{ group.details|linebreaksbr }}</p>
         </div>
 </div>
-<form class="swipeForm row" action="{% url 'add_contender' %}" method="post">
+<form class="swipeForm" action="{% url 'add_contender' %}" method="post">
     {% csrf_token %}
     <input type="hidden" name="group_id" value="{{ group.id }}">
-    <br>
-    <div class="yesNoBtn">
-        <a href="" class="btn redBtn">NAY</a>
-        <!-- Placed inside form so it's easier to style, was acting completely different - BGQ -->
-        <button type="submit" class="btn">YEA</button>
-    </div>
+    <a href="" class="btn redBtn yesNoBtn">NAY</a>
+    <!-- Placed inside form so it's easier to style, was acting completely different - BGQ -->
+    <button type="submit" class="btn yesNoBtn">YEA</button>
 </form>
 
 {% else %}

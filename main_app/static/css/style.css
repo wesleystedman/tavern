@@ -24,7 +24,7 @@ a:hover {
     color: #627BA1;
 }
 header {width: 100%}
-ul ol {
+ul, ol {
     width: 100%;
     
 }
@@ -44,7 +44,7 @@ p {
 /* Navigation */
 nav{
     background-color: black;
-    width: 93vw;
+    width: 87vw;
     margin: 0px 0px 0px 0vw;
 }
 #navRow{
@@ -184,6 +184,10 @@ footer {
     background-repeat: no-repeat;
     background-size: contain;
     height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .paper {
     height: 50vh;
@@ -194,7 +198,7 @@ footer {
 .cardWords {
     /*padding: 50px 0px 1vh 0px;*/
     margin: 50px 0vw 0px 0vw;
-    max-width: 80%;
+    max-width: min(80vw, 390px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -238,6 +242,12 @@ form {
 }
 .swipeForm {
     background-color: transparent;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
 }
 
 
@@ -293,7 +303,7 @@ form {
 }
 .yesNoBtn {
     margin: 1vh 3vw 1vh 3vw;
-    font: 40vw 'Cinzel Decorative', cursive, sans-serif;
+    font: 2.5vw 'Cinzel Decorative', cursive, sans-serif;
     padding: 1vh 2.75vw 1vh 2.75vw;
 }
 
