@@ -2,36 +2,31 @@
 
 {% block content %}
 
-<h1>Find a Group</h1>
+<h2 class="h2">Find a Group</h2>
 
 {% if group %}
 
-<div class="card">
-    <p class="cardWords">
-        <b>Group Name:</b>&nbsp {{ group.group_name }}<br>
-        <br>
-        <b>System:</b>&nbsp {{ group.system }}<br>
-        <br>
-        <b>Next Session:</b><br>
-        {{ group.date }}<br>
-        <br>
-        <b>Details</b> <br>
-        <br>
-        {{ group.details|linebreaksbr }}
-    </p>
-    <div>
-        <form class="swipeForm" action="{% url 'add_contender' %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="group_id" value="{{ group.id }}">
-            <br>
-            <div class="yeaNayRow">
-                <a href="" class="btn">NAY</a>
-                <!-- Placed inside form so it's easier to style, was acting completely different - BGQ -->
-                <button type="submit" class="btn">YEA</button>
-            </div>
-        </form>
-    </div>
+<div class="charter">
+    <!--<img class="paper" src='https://imgur.com/lpdmm0E.png'>-->
+        <div class="cardWords">
+            <p><large>{{ group.group_name }}<large></p>
+            <p>System:&nbsp {{ group.system }}</p>
+            <p>Next Session:</p>
+            <p>{{ group.date }}</p>
+            <p>Details</p>
+            <p>{{ group.details|linebreaksbr }}</p>
+        </div>
 </div>
+<form class="swipeForm row" action="{% url 'add_contender' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="group_id" value="{{ group.id }}">
+    <br>
+    <div class="yesNoBtn">
+        <a href="" class="btn redBtn">NAY</a>
+        <!-- Placed inside form so it's easier to style, was acting completely different - BGQ -->
+        <button type="submit" class="btn">YEA</button>
+    </div>
+</form>
 
 {% else %}
 

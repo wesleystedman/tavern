@@ -1,18 +1,20 @@
+
+/* DEFAULT STYLING */
 body {
-    padding: 0vh;
-    margin: 0vh;
-    font: 16px 'Cinzel Decorative', cursive, sans-serif;
-    /*overflow-x: hidden;*/
-    scroll-behavior: smooth;
-    background-color: black;
-    background-size: 100%;
-    width: 100%;
-    height: auto;
-    color: #c06621;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    background-size: 100%;
+    font: 16px 'Cinzel Decorative', cursive, sans-serif;
+    /*overflow-x: hidden;*/
+    scroll-behavior: smooth;
+    background-color: black;
+    width: 100%;
+    height: auto;
+    color: #c06621;
     text-shadow: 1px 2px 0px #000000;
 }
 a {
@@ -21,45 +23,44 @@ a {
 a:hover {
     color: #627BA1;
 }
-
-header{
+header {width: 100%}
+ul ol {
     width: 100%;
+    
 }
-
-#basemain {
-    background-color: white;
-    width: 100%;
-}
-
-ul {
-    width: 100%;
-}
-
 li {
     list-style-type: none;
-    margin: 0vh 1vw 0vh 1vw;
+    margin: 0vh 0vw 0vh 0vw;
     text-shadow: 1px 1px 0px #000000;
 }
-
-/* NAV */
+h1 {font-size: 4.6vw}
+.h2 {
+    margin: 1vh 0 1vh 0;
+}
+p {
+    font-size: 1.5vw;
+    margin: 5px 1vw 5px 1vw;
+}
+/* Navigation */
 nav{
     background-color: black;
-    width: 85%;
+    width: 93vw;
+    margin: 0px 0px 0px 0vw;
 }
 #navRow{
     display: flex;
     flex-direction: row;
-    align-items: top;
+    align-items: center;
     justify-content: space-between;
-    text-align: left;
+    margin: 0.5vh 0px 0.5vh 0vw;
 }
 .navImg{
-    width: 10vw;
+    width: 50px;
     height: auto;
     max-width: 50px; /* Avoid attribution requirement by keeping below 100px */
     max-height: 50px; /* Avoid attribution requirement by keeping below 100px */
-    margin: 0vh 2vw 0 0vw;
-    padding: 0 0vw 0 0vw;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
 }
 .navLi{
     display: flex;
@@ -71,164 +72,44 @@ nav{
     font-size: 2vw;
     text-align: center;
     color: #fff;
-    margin: 0px 2vw 0px 0px;
+    margin: 0px 0vw 0px 0px;
 }
-
-
-#landingbody {
-    background-image:url('/static/third.gif');
-    background-repeat: no-repeat;
-    background-color: black;
-    backdrop-filter: brightness(75%);
-    background-size: 100%;
-    width: 100%;
+#navLogo {
+    width: 60px;
     height: auto;
-    color: white;
-    padding: 1px 0 0 0;
+    max-width: 99px; /* Avoid attribution requirement by keeping below 100px */
+    max-height: 99px; /* Avoid attribution requirement by keeping below 100px */
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
 }
-
-.row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
-
-h1 {
-    font-size: 4.6vw;
-}
-
-#Unifraktur {
-    font-family: 'UnifrakturMaguntia', cursive;
-    color: #A40E01;
-    font-size: 8vw;
-}
-
-.Unifraktur {
-    font-family: 'UnifrakturMaguntia', cursive;
-    color: #A40E01;
-    font-size: 4vw;
-}
-
-p {
-    font-size: 1.5vw;
-    margin: 5px 1vw 5px 1vw;
-}
-
-#logo {
-    width: 99px; /* Avoid attribution requirement by keeping below 100px */
-    height: 99px; /* Avoid attribution requirement by keeping below 100px */
-    margin: 0vh 0 0vh 0;
-}
-
-/* CARDS */
-.card {
+/* Footer */
+footer {
+    background: black;
+    position: relative;
+    bottom: 0px;
+    padding: 5px 0 0px 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 3vh 0px 15vh 0px;
-}
-.cardWords {
-    font-size: 2.5vw;
-    text-shadow: 0px 0px 0px #000000;
-    margin: 0 20vw 0 20vw;
-    line-height: 3.6vw;
-}
-
-/* BUTTONS */
-.btn {
-    background-color:#d67125;
-    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
-    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
-    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
-    background-image: -o-linear-gradient(top, #DD8949, #C06621);
-    background-image: linear-gradient(to bottom, #DD8949, #C06621);
-    border-radius: 15px;
     color: #fff;
-    font: 16px 'Cinzel Decorative', cursive, sans-serif;
-    font-size: 3vw;
-    font-weight: 60;
-    padding: 1vh 2.75vw 1vh 2.75vw;
-    margin: 1vh 1vw 1vh 1vw;
-    text-shadow: 1px 2px 0px #000000;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    border: groove grey 1px;
-    box-shadow: 0px 1px 21px 4px #EC6542;
-    -webkit-box-shadow: 0px 1px 21px 4px #EC6542;
-    -moz-box-shadow: 0px 1px 21px 4px #EC6542;
-}
-.btn:hover {
-    background-color:#ce8b58;
-    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
-    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
-    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
-    background-image: -o-linear-gradient(top, #DD8949, #C06621);
-    background-image: linear-gradient(to bottom, #DD8949, #C06621);
-}
-#ctaBtn {
-    background-color:#A40E01;
-    background-image: -webkit-linear-gradient(top, #D71201, #710A01);
-    background-image: -moz-linear-gradient(top, #D71201, #710A01);
-    background-image: -ms-linear-gradient(top, #D71201, #710A01);
-    background-image: -o-linear-gradient(top, #D71201, #710A01);
-    background-image: linear-gradient(to bottom, #D71201, #710A01);
-}
-#ctaBtn:hover {
-    box-shadow: 0px 1px 21px 4px #f75e59;
-    -webkit-box-shadow: 0px 1px 21px 4px #f75e59;
-    -moz-box-shadow: 0px 1px 21px 4px #f75e59;
-}
-.loginBtnContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-#loginPageBtn {
-    font-size: 20px;
-    margin: 25px 0 0 0;
-}
-.yeaNayRow {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    background-color: red;
-    padding: 0vh 10vw 0vh 10vw;
-    width: 50%;
-    margin: 1vh 0vw 0vh 0vw;
+    justify-content: center;
+    text-align: center;
+    border-top: 2px solid #5a5a5a;
+}
+#footlogo {
+    background-color: black;
+    border-radius: 15px;
+    padding: 5px 5px 0px 5px;
+    margin: 0 5px 5px 10px;
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #A40E01;
+}
+#copyright {
+    font-size: 70%;
+    margin: 5px 5px 15px 5px;
 }
 
-/* FORMS */
-form {
-    background-color: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    text-align: left;
-    line-height: 2.25vh;
-    font-size: 3vw;
-    padding: 3vh 3vw 3vh 3vw;
-    margin: 2vh 1vw 0vh 1vw;
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-}
-#loginPageForm {
-    padding: 3vh 3vw 3vh 3vw;
-    margin: 20vh 1vw 40vh 1vw;
-}
-.swipeForm {
-    background-color: transparent;
-}
 
 /* LANDING PAGE */
 .landingp {
@@ -264,30 +145,173 @@ form {
     padding: 0 0vw 0 3vw;
 }
 
-/* FOOTER */
-footer {
-    background: black;
-    position: relative;
-    bottom: 0px;
-    padding: 5px 0 0px 0;
+
+/* CONTAINER CLASSES & IDS */
+#basemain {
+    background-color: white;
+    width: 97%;
+}
+#landingbody {
+    background-image:url('/static/third.gif');
+    background-repeat: no-repeat;
+    background-color: black;
+    backdrop-filter: brightness(75%);
+    background-size: 100%;
     width: 100%;
-    color: #fff;
+    height: auto;
+    color: white;
+    padding: 1px 0 0 0;
+}
+.row {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-top: 2px solid #5a5a5a;
 }
-#footlogo {
+.loginBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/* Cards */
+.charter {
+    margin: 5px 1vw 1vh 1vw;
+    padding: 5px 0 0 0;
+    background-image: url('https://imgur.com/lpdmm0E.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60vh;
+}
+.paper {
+    height: 50vh;
+    width: auto;
+    max-width: 100%;
+    position: relative;
+}
+.cardWords {
+    /*padding: 50px 0px 1vh 0px;*/
+    margin: 50px 0vw 0px 0vw;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.cardWords p {
+    line-height: 2.5vh;
+    font-size: 1.5vh;
+    text-shadow: 0px 0px 0px #000000;
+}
+
+
+/* FORMS */
+form {
     background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    line-height: 2.25vh;
+    font-size: 3vw;
+    padding: 3vh 3vw 3vh 3vw;
+    margin: 2vh 1vw 0vh 1vw;
+    width: 100%;
+    height: auto;
     border-radius: 15px;
-    padding: 5px 5px 0px 5px;
-    margin: 0 5px 5px 10px;
+}
+#loginPageForm {
+    margin: 20vh 1vw 40vh 1vw;
+}
+#signinPageForm {
+    width: 100%;
+    padding: 0vh 0vw 0vh 0vw;
+    margin: 5vh 0vw 5vh 0vw;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 3vw;
+    font-size: 2vw;
+}
+.swipeForm {
+    background-color: transparent;
+}
+
+
+/* BUTTONS */
+.btn {
+    background-color:#d67125;
+    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
+    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
+    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
+    background-image: -o-linear-gradient(top, #DD8949, #C06621);
+    background-image: linear-gradient(to bottom, #DD8949, #C06621);
+    border-radius: 15px;
+    color: #fff;
+    font: 16px 'Cinzel Decorative', cursive, sans-serif;
+    font-size: 3vw;
+    font-weight: 60;
+    padding: 1vh 2.75vw 1vh 2.75vw;
+    margin: 1vh 1vw 1vh 1vw;
+    text-shadow: 1px 2px 0px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    border: groove grey 1px;
+    box-shadow: 0px 1px 21px 4px #EC6542;
+    -webkit-box-shadow: 0px 1px 21px 4px #EC6542;
+    -moz-box-shadow: 0px 1px 21px 4px #EC6542;
+}
+.btn:hover {
+    background-color:#ce8b58;
+    background-image: -webkit-linear-gradient(top, #DD8949, #C06621);
+    background-image: -moz-linear-gradient(top, #DD8949, #C06621);
+    background-image: -ms-linear-gradient(top, #DD8949, #C06621);
+    background-image: -o-linear-gradient(top, #DD8949, #C06621);
+    background-image: linear-gradient(to bottom, #DD8949, #C06621);
+}
+.redBtn {
+    background-color:#A40E01;
+    background-image: -webkit-linear-gradient(top, #D71201, #710A01);
+    background-image: -moz-linear-gradient(top, #D71201, #710A01);
+    background-image: -ms-linear-gradient(top, #D71201, #710A01);
+    background-image: -o-linear-gradient(top, #D71201, #710A01);
+    background-image: linear-gradient(to bottom, #D71201, #710A01);
+}
+.redBtn:hover {
+    box-shadow: 0px 1px 21px 4px #f75e59;
+    -webkit-box-shadow: 0px 1px 21px 4px #f75e59;
+    -moz-box-shadow: 0px 1px 21px 4px #f75e59;
+}
+#loginPageBtn {
+    font-size: 20px;
+    margin: 25px 0 0 0;
+}
+.yesNoBtn {
+    margin: 1vh 3vw 1vh 3vw;
+    font: 40vw 'Cinzel Decorative', cursive, sans-serif;
+    padding: 1vh 2.75vw 1vh 2.75vw;
+}
+
+
+
+/* STYLERS */
+#Unifraktur {
     font-family: 'UnifrakturMaguntia', cursive;
     color: #A40E01;
+    font-size: 8vw;
 }
-#copyright {
-    font-size: 70%;
-    margin: 5px 5px 15px 5px;
+.Unifraktur {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #A40E01;
+    font-size: 4vw;
+}
+#logo {
+    width: 99px; /* Avoid attribution requirement by keeping below 100px */
+    height: 99px; /* Avoid attribution requirement by keeping below 100px */
+    margin: 0vh 0 0vh 0;
 }
