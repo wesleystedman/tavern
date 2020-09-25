@@ -1,26 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1> Profile </h1>
-
-
 <div class="content">
-    <div class="edit">
-        <a href="{% url 'profile_update' %}">Edit</a>
-    </div>
-
+    <br>
+    <span class="title">{{ profile.user.username }}'s Profile</span>
     <img src="{{ profile.avatar }}" alt="{{ profile.user.username }}'s Avatar" height="200">
-</br>
-    <span class="title">{{ profile.user.username }}'s profile</span>
-    
+    <br>
     <p>{{ profile.get_systems }}</p>
-    
     <p>{{ profile.user.email }}</p>
-    
     <p>{{ profile.location }}</p>
-    
-    <p>{{ profile.bio }}</p>
 
+    <p>{{ profile.bio }}</p>
 </div>
+<br>
+<div class="edit">
+        <a class="btn" href="{% url 'profile_update' profile.id %}">Edit</a>
+</div>
+<br>
 
 {% endblock %}

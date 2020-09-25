@@ -1,15 +1,19 @@
 {% extends 'no_nav_base.html' %}
 {% block content %}
 
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
 
 {% if error_message %}<p>{{ error_message }}</p>{% endif %}
 
-<form method="post" action="{% url 'signup' %}">
+<form id="signinPageForm" method="post" action="{% url 'signup' %}">
     {% csrf_token %}
-    {{ form.as_p }}
-    {{ profile_form.as_p }}
-    <input type="submit" class="btn loginPageBtn" value="signup">
+    <div >
+        {{ form.as_p }}
+        {{ profile_form }}
+    </div>
+    <div <div class="loginBtnContainer">
+        <input type="submit" class="btn loginPageBtn" value="signup">
+    </div>
 </form>
 
 {% endblock %}
